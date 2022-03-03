@@ -1,4 +1,9 @@
 package ntnu.group10.backend.group10.Repository;
 
-public class PaymentRepository {
+import ntnu.group10.backend.group10.Entity.Payment;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PaymentRepository extends JpaRepository<Payment, Integer> {
 }

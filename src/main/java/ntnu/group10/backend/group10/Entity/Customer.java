@@ -1,9 +1,6 @@
 package ntnu.group10.backend.group10.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Customer {
@@ -13,7 +10,16 @@ public class Customer {
     private String email;
     private String firstName;
     private String lastName;
+    private String Address;
+
+
+    @ManyToOne
+    @JoinTable(name = "addressId")
     private Address address;
+
+
+    public Customer() {
+    }
 
     public int getCustomerId() {
         return customerId;
