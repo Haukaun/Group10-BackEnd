@@ -2,8 +2,10 @@ package ntnu.group10.backend.group10.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="´Order´")
 public class Order {
 
     @Id
@@ -11,5 +13,21 @@ public class Order {
     private int customerId;
 
     public Order() {
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 }
