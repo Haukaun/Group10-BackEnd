@@ -10,11 +10,9 @@ public class Customer {
     private String email;
     private String firstName;
     private String lastName;
-    private String Address;
 
 
-    @ManyToOne
-    @JoinTable(name = "addressId")
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Address address;
 
 
