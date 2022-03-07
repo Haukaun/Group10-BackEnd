@@ -11,7 +11,7 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Address address;
 
 
