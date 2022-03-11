@@ -2,21 +2,21 @@ package ntnu.group10.backend.group10.Entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "Payment")
 public class Payment {
 
     @Id
-    private int paymentId;
+    private int orderId;
 
     @OneToOne
-    @JoinColumn(name = "orderId", nullable = false)
-    private int order;
+    @MapsId
+    @JoinColumn(name = "orderId")
+    private Order order;
 
-    @OneToMany
-    @JoinColumn(name = "paymentMethodId", nullable = false)
-    private int paymentMethod;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "payment")
+    private List<PaymentMethod> paymentMethods;
 
     private int paymentAmount;
     private Date paymentDate;
@@ -24,10 +24,10 @@ public class Payment {
     private int creditCardExpirationDate;
     private String cardHolderName;
 
-    public Payment(int paymentId, int order, int paymentMethod, int paymentAmount, Date paymentDate, Long creditCardNumber, int creditCardExpirationDate, String cardHolderName) {
-        this.paymentId = paymentId;
+    public Payment(int paymentId, Order order, List<PaymentMethod> paymentMethods, int paymentAmount, Date paymentDate, Long creditCardNumber, int creditCardExpirationDate, String cardHolderName) {
+        this.orderId = paymentId;
         this.order = order;
-        this.paymentMethod = paymentMethod;
+        this.paymentMethods = paymentMethods;
         this.paymentAmount = paymentAmount;
         this.paymentDate = paymentDate;
         this.creditCardNumber = creditCardNumber;
@@ -36,26 +36,26 @@ public class Payment {
     }
 
     public int getPaymentId() {
-        return paymentId;
+        return orderId;
     }
 
     public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
+        this.orderId = paymentId;
     }
 
-    public int getPaymentMethod() {
-        return paymentMethod;
+    public List<PaymentMethod> getPaymentMethods() {
+        return paymentMethods;
     }
 
-    public void setPaymentMethod(int paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
+        this.paymentMethods = paymentMethods;
     }
 
-    public int getOrderId() {
+    public Order getOrderId() {
         return order;
     }
 
-    public void setOrderId(int order) {
+    public void setOrderId(Order order) {
         this.order = order;
     }
 

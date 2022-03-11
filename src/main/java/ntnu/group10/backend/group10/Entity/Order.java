@@ -1,8 +1,6 @@
 package ntnu.group10.backend.group10.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="´Order´")
@@ -10,11 +8,18 @@ public class Order {
 
     @Id
     private int orderId;
-    private int customerId;
 
-    public Order(int orderId, int customerId) {
+    @OneToOne
+    @JoinColumn(name = "customerId")
+    private Customer customer;
+
+    @OneToOne(mappedBy = "order")
+    @PrimaryKeyJoinColumn
+    private Payment payment;
+
+    public Order(int orderId, Customer customerId) {
         this.orderId = orderId;
-        this.customerId = customerId;
+        this.customer = customerId;
     }
 
     public Order() {
@@ -28,11 +33,11 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
