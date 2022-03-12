@@ -3,7 +3,7 @@ package ntnu.group10.backend.group10.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="´Order´")
+@Table(name="orders")
 public class Order {
 
     @Id
@@ -17,13 +17,14 @@ public class Order {
     @PrimaryKeyJoinColumn
     private Payment payment;
 
-    public Order(int orderId, Customer customerId) {
+    public Order(int orderId, Customer customer) {
         this.orderId = orderId;
-        this.customer = customerId;
+        this.customer = customer;
     }
 
     public Order() {
     }
+
 
     public int getOrderId() {
         return orderId;
