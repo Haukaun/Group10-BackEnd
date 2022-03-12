@@ -2,20 +2,22 @@ package ntnu.group10.backend.group10.Entity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 public class Payment {
 
     @Id
-    private int paymentId;
+    private int orderId;
 
-
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "orderId")
+    private Order order;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "payment")
     private Set<PaymentMethod> paymentMethods;
-
 
     private int paymentAmount;
     private Date paymentDate;
@@ -23,18 +25,42 @@ public class Payment {
     private int creditCardExpirationDate;
     private String cardHolderName;
 
-
-    public Payment() {
-
+    public Payment(int paymentId, Order order, Set<PaymentMethod> paymentMethods, int paymentAmount, Date paymentDate, Long creditCardNumber, int creditCardExpirationDate, String cardHolderName) {
+        this.orderId = paymentId;
+        this.order = order;
+        this.paymentMethods = paymentMethods;
+        this.paymentAmount = paymentAmount;
+        this.paymentDate = paymentDate;
+        this.creditCardNumber = creditCardNumber;
+        this.creditCardExpirationDate = creditCardExpirationDate;
+        this.cardHolderName = cardHolderName;
     }
+
+    public Payment() {}
 
 
     public int getPaymentId() {
-        return paymentId;
+        return orderId;
     }
 
     public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
+        this.orderId = paymentId;
+    }
+
+    public Set<PaymentMethod> getPaymentMethods() {
+        return paymentMethods;
+    }
+
+    public void setPaymentMethods(Set<PaymentMethod> paymentMethods) {
+        this.paymentMethods = paymentMethods;
+    }
+
+    public Order getOrderId() {
+        return order;
+    }
+
+    public void setOrderId(Order order) {
+        this.order = order;
     }
 
     public int getPaymentAmount() {

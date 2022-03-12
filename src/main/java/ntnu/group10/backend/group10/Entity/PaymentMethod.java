@@ -1,8 +1,6 @@
 package ntnu.group10.backend.group10.Entity;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "paymentMethod")
@@ -12,11 +10,10 @@ public class PaymentMethod {
     private String paymentMethod;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "paymentMethodId" ,nullable = false, insertable = false , updatable = false)
+    @JoinColumn(name = "paymentId")
     private Payment payment;
 
-    public PaymentMethod() {
-    }
+    public PaymentMethod() {}
 
     public String getPaymentMethod() {
         return paymentMethod;

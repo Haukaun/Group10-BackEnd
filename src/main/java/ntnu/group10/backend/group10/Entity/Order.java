@@ -8,20 +8,23 @@ public class Order {
 
     @Id
     private int orderId;
-    private int customerId;
-
 
     @OneToOne
+    @JoinColumn(name = "customerId")
+    private Customer customer;
+
+    @OneToOne(mappedBy = "order")
+    @PrimaryKeyJoinColumn
     private Payment payment;
 
+    public Order(int orderId, Customer customer) {
+        this.orderId = orderId;
+        this.customer = customer;
+    }
 
     public Order() {
     }
 
-    public Order(int orderId, int customerId) {
-        this.orderId = orderId;
-        this.customerId = customerId;
-    }
 
     public int getOrderId() {
         return orderId;
@@ -31,11 +34,11 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
