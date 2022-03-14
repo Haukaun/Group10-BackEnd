@@ -1,7 +1,7 @@
 package ntnu.group10.backend.group10.services;
 
 import ntnu.group10.backend.group10.entities.OrderItem;
-import ntnu.group10.backend.group10.Repository.OrderItemRepository;
+import ntnu.group10.backend.group10.repository.OrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

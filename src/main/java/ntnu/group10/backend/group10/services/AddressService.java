@@ -1,7 +1,7 @@
 package ntnu.group10.backend.group10.services;
 
 import ntnu.group10.backend.group10.entities.Address;
-import ntnu.group10.backend.group10.Repository.AddressRepository;
+import ntnu.group10.backend.group10.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

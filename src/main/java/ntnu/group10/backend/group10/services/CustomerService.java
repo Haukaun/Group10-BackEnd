@@ -2,7 +2,7 @@ package ntnu.group10.backend.group10.services;
 
 
 import ntnu.group10.backend.group10.entities.Customer;
-import ntnu.group10.backend.group10.Repository.CustomerRepository;
+import ntnu.group10.backend.group10.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
