@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+
+<head>
+    <meta charset="utf-8" />
+    <title>G9RedX</title>
+    <link rel="icon" href="images/aids.png" type="image/gif">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <section id="header">
+
+        <div class="header-container">
+
+            <div class="brand-image">
+                <img src="images/aids.png" alt="">
+            </div>
+
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+
+            <div class="menubar-links">
+                <ul>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#related-companies">Companies</a></li>
+                    <li><a href="#reviews">Testimonials</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container-text">
+            <h1>RED CROSS ÅLESUND</h1>
+            <H6>We value every life</H6>
+            <div class="signup-btn">
+                <button type="button">Sign up for course</button>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="product">
+
+
+    </section>
+
+    <section id="about-us">
+        <div class="about-text">
+            <h1>About us</h1>
+            <p>We provide courses both during work time and evening courses. <br> Since 2020, we don't provide weekend
+                courses anymore.</p>
+        </div>
+
+        <div class="image-slider">
+            <h1>Our team</h1>
+            <figure>
+                <img src="images/wide1.png">
+                <img src="images/wide2.png">
+                <img src="images/wide3.jpg">
+            </figure>
+
+        </div>
+
+        <div class="image-dot">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div class="text-under">
+            <p>Our team consists of medical professionals with more than 30 years of experience. <br>We are certified
+                according to ISO 8072 and DNV 23:786.</p>
+        </div>
+    </section>
+
+    <section id="related-companies">
+        <h1>Related Companies</h1>
+        
+        <div id="company-cards">
+            <div class="company-card-item">
+                <a href="https://radioaalesund.no/" target="_blank"><img src="images/radio.png" alt="radio Alesund" class="company-image"></a>
+            </div>
+
+
+            <div class="company-card-item">
+                <a href="https://smp.no/" target="_blank"><img src="images/smp.png" alt="smp" class="company-image"></a>
+            </div>
+
+            <div class="company-card-item">
+                <a href="https://tv.nrk.no/" target="_blank"><img src="images/nrktv.png" alt="nrk tv" class="company-image"></a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="reviews">
+        <h1>Testimonials</h1>
+        <div id="review-cards" onscroll='checkEdge()'>
+            <div class="review-card-item" id="review-card-item1">
+                <img src="images/user1.png" alt="user image">
+                <h2>Great Product!</h2>
+                <p>this works well</p>
+            </div>
+
+            <div class="review-card-item" id="review-card-item2">
+                <img src="images/user2.png" alt="user image">
+                <h2>Great Product!</h2>
+                <p>this works well</p>
+            </div>
+
+            <div class="review-card-item" id="review-card-item3"> 
+                <img src="images/user3.png" alt="user image">
+                <h2>Great Product!</h2>
+                <p>this works well</p>
+            </div>
+
+            <div class="review-card-item" id="review-card-item4">
+                <img src="images/user3.png" alt="user image">
+                <h2>Great Product!</h2>
+                <p>this works well</p>
+            </div>
+
+            <div class="review-card-item" id="review-card-item5">
+                <img src="images/user3.png" alt="user image">
+                <h2>Great Product!</h2>
+                <p>this works well</p>
+            </div>
+
+            <div class="review-card-item" id="review-card-item6">
+                <img src="images/user3.png" alt="user image">
+                <h2>Great Product!</h2>
+                <p>this works well</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="footer">
+        <div class="footer-container">
+            <div class="shortcut">
+                <H1>Shortcut</H1>
+                <ul>
+                    <li><a href="#">Certification</a></li>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Orders</a></li>
+                </ul>
+            </div>
+            <div class="information">
+                <h1>Information</h1>
+                <ul>
+                    <li><a href="#">Terms and conditions</a></li>
+                    <li><a href="#">Code and Medical Ethics</a></li>
+                    <li><a href="#">Terms of sale</a></li>
+                </ul>
+            </div>
+            <div class="support">
+                <h1>Support</h1>
+                <ul>
+                <li><a href="#">Contacts us</a></li>
+                <li><a href="#">Questions and Answers</a></li>
+                <li><a href="#">Refunds</a></li>
+                </ul>
+            </div>
+            <div class="footer-images">
+                <img src="images/aids.png" alt="">
+                <img src="images/SecurePayments.png" alt="">
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
