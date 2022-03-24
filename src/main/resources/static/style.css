@@ -1,0 +1,549 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+/* Header section */
+
+
+.menubar{
+    background-image: linear-gradient( rgba(12, 11, 11, 0.45), rgb(236, 113, 111)), url(../images/longdoctor.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    display: flex;
+    padding: 3.2rem 3.2rem;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+.menubar-links ul {
+    margin: 0;
+    padding: 1.6rem 1.6rem;
+    display: flex;
+}
+
+.menubar-links li {
+    list-style-type: none;
+}
+
+.menubar-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.menubar-links li a:hover {
+    text-decoration: underline;
+}
+
+.brand-image img {
+    height: 50px;
+    width: auto;
+    margin-top: 1rem;
+}
+
+.container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    gap: 16px;
+    font-size: 3.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.signup-btn button {
+    background-color: #ec361e;
+    border-color: #ffffff;
+    border-style: solid;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 1.5rem 3.2rem;
+    font-size: 1.6rem;
+    margin-top: 4rem;
+}
+
+.signup-btn button:hover {
+    background-color: #8a2315;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 1.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+    width: 3rem;
+    height: 3rem;
+}
+
+.toggle-button .bar {
+    height: 1rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+
+@media (max-width: 600px) {
+
+    .toggle-button {
+        display: flex;
+        margin: 4rem 2.5rem;
+    }
+
+    .menubar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .header-container {
+        flex-direction: column;
+    }
+
+    .menubar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .menubar-links li {
+        text-align: center;
+    }
+
+    .menubar-links li a {
+        padding: 1rem;
+    }
+
+    .menubar-links.active {
+         display: flex;
+    }
+
+    .menubar-links.close {
+        display: none;
+    }
+
+    .menubar{
+        height: 80vh;
+    }
+
+
+}
+
+@media(max-width: 700px){
+    .container-text{
+        font-size: 2.5rem;
+    }
+
+    .menubar-links li{
+        font-size: medium;
+    }
+}
+
+
+
+/* Product info */
+
+#product-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    margin: 10rem 0;
+}
+
+#product-content h2 {
+    font-size: 3rem;
+}
+
+#product-content .title h3 {
+    font-size: 1.5rem;
+}
+
+#product-content .title {
+    margin: 0 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20rem;
+}
+
+.product-card-item {
+    width: 25rem;
+    height: 40rem;
+    overflow: hidden;
+    box-shadow: 5px 10px 8px #e0e0e0;
+}
+
+.card-item-description {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.product-card-item img {
+    width: 40rem;
+    height: auto;
+}
+
+
+/* Company section */
+
+
+
+/*
+ * Image Fade effect
+*/
+
+.company-image {
+    width: 100%;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.company-card-item:hover .company-image {
+    opacity: 0.5;
+}
+
+/*
+ * Title above the flex managed boxes
+*/
+#related-companies > h1 {
+    font-size: 3rem;
+    padding-bottom: 6rem;
+    text-align: center;
+}
+
+/*
+ * Positioning and styling of the Boxes
+*/
+#related-companies {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
+
+
+
+#company-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#company-cards {
+    justify-content: center;
+    gap: 128px;
+}
+
+/*
+ * The content inside of the cards
+*/
+.company-card-item {
+    background-color: white;
+    box-shadow: 5px 10px 8px #e0e0e0;
+}
+
+.company-card-item {
+    width: 20em;
+    height: 20em;
+}
+
+/* -------------------------------------------------------- */
+
+
+
+/* About us Section */
+
+#about-us{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text{
+    text-align: center;
+    justify-content: center;
+    margin-top: 5rem;
+    font-size: large;
+}
+
+.about-text > h1 {
+    font-size: 3rem;
+}
+
+.text {
+    color: #000000;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+.about-text p {
+    margin: 3rem;
+}
+
+.text-under{
+    text-align: center;
+    justify-content: center;
+    margin: 5rem;
+    font-size: large;
+    width: 100;
+    height: auto;
+
+}
+
+
+
+
+/* -------------------------------------------------------- */
+
+
+/* Foooter section */
+
+@media (max-width: 1300px) {
+    .footer-container ul li{
+        font-size: 1.3rem;
+    }
+}
+
+
+.shortcut{
+    width: 15rem;
+    height: 10rem;
+}
+
+.dropbar-container{
+    display: none;
+}
+
+.information, .support{
+    width: 25rem;
+    height: 10rem;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin: 10rem;
+}
+
+.footer-container h1{
+    font-size: 2rem;
+}
+
+.footer-container ul{
+    font-size: 2rem;
+}
+
+.footer-container li{
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+.footer-container li a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-images{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 30rem;
+}
+
+.footer-container li a:hover{
+    text-decoration: underline rgb(212, 120, 120);
+}
+
+#footer{
+    background: linear-gradient(#e2a1a1, #f59d9d);
+}
+
+.line{
+
+}
+
+
+@media (max-width: 979px){
+    .footer-container{
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .footer-images{
+        flex-wrap: wrap;
+    }
+
+    .shortcut, .information, .support{
+        display: none;
+    }
+
+    .dropbar-container{
+        display: contents;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropbar-container nav{
+        width : 30rem;
+        background: #ecbfbf;
+        margin : 4rem auto;
+        border-radius: 2rem;
+    }
+
+    .dropbar-container span{
+        padding : 3rem;
+        background : #ffffff;
+        color : rgb(0, 0, 0);
+        font-size : 1.2em;
+        font-variant : small-caps;
+        cursor : pointer;
+        display: block;
+        border-radius: 1rem;
+    }
+
+    .dropbar-container span::after{
+        float: right;
+        right: 10%;
+        content: "+";
+    }
+
+    .slide{
+        clear:both;
+        width:100%;
+        height:0px;
+        overflow: hidden;
+        text-align: center;
+        transition: height .4s ease;
+    }
+
+    .slide li{
+        padding : 3rem;
+    }
+
+    #touch, #touch1, #touch2{
+        position: absolute; opacity: 0; height: 0px;
+    }
+
+    #touch:checked + .slide, #touch1:checked + .slide, #touch2:checked + .slide {
+        height: 25rem;
+    }
+}
+@media (max-width: 1300px) {
+    .footer-container ul li{
+        font-size: 1.3rem;
+    }
+}
+
+
+
+/* testimonials */
+
+#testimonial-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#ffffff, #e2a1a1);
+}
+
+.testimonial-header{
+    margin: 5%;
+    font-size: 3rem;
+    text-align: center;
+
+}
+
+.testimonial-header h2{
+    margin: 5%;
+    font-size: 2rem;
+}
+
+.testimonial-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.testimonial{
+    font-size: 2rem;
+    height: 40rem;
+    width: 40rem;
+    text-align: center;
+    background-color: #fdcece;
+    border-radius: 1rem;
+    padding: 3rem;
+    box-shadow: 2.5rem 2.5rem 7rem 0.3rem black;
+}
+
+.testimonial-wrapper img{
+    border-radius: 3rem;
+    margin: 2%;
+}
+
+.line{
+    background-color: #000000;
+    height: 2px;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.testimonial p{
+    margin: 3%;
+}
+@media (max-width: 600px){
+
+    .testimonial{
+        font-size: 1.5rem;
+        width: 25vh;
+    }
+}
+
+
+
+

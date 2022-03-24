@@ -1,5 +1,7 @@
 const togglebutton = document.getElementsByClassName('toggle-button')[0]
 const menubar = document.getElementsByClassName('menubar-links')[0]
+
+
 var counter = 10;
 var childWidth = document.getElementById("review-card-item1").offsetWidth;
 /* const body = document.getElementsByTagName('body')[0] */

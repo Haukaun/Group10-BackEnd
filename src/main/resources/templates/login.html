@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+  <title>Login - Red Cross</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="icon" href="../images/favicon.png" type="image/gif">
 </head>
+
 <body>
-<h1>testt</h1>
-<form th:action="@{/login}" th:object="${loginForm}" method="post">
-    <p th:if="${error}" class="error">UserName & Password Incorrect</p>
-    <div class="row">
 
-        <input type="text" name="username">
-    </div>
-    <div class="row">
-
-        <input type="password" name="password">
-    </div>
-    <div class="row button">
-        <input type="submit" value="Login">
-    </div>
-</form>
+<div class="form-wrapper">
+  <h1 class="header-label">Login</h1>
+  <div class="form">
+    <form class="form-signin" th:action="@{/login}" th:object="${loginForm}" method="post">
+      <p th:if="${error}" class="error">UserName & Password Incorrect</p>
+      <Label for="username">Username:</Label>
+      <input type="text" name="username">
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+      <input type="submit" id="submit-button" value="Login">
+    </form>
+  </div>
+  <a href="../html/register.html">Not registered? Sign up</a>
+  <div class="logo">
+    <img src="../images/cross.png" alt="">
+  </div>
+  <a href="../html/index.html">Back to main page</a>
+</div>
 </body>
+
 </html>

@@ -1,176 +1,225 @@
 <!DOCTYPE html>
-<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>G9RedX</title>
-    <link rel="icon" href="images/aids.png" type="image/gif">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Cross</title>
+  <link rel="icon" href="../images/favicon.png" type="image/gif">
+  <link rel="stylesheet" href="style.css">
+  <script src=".script.js" defer></script>
 </head>
 
 <body>
-    <section id="header">
+<section id="header">
+  <div class="menubar">
+    <nav class="header-container">
 
-        <div class="header-container">
+      <div class="brand-image">
+        <img src="../images/cross.png" alt="">
+      </div>
 
-            <div class="brand-image">
-                <img src="images/aids.png" alt="">
-            </div>
+      <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
 
-            <a href="#" class="toggle-button">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
+      <div class="menubar-links">
+        <ul>
+          <li><a href="login">Login</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#related-companies">Companies</a></li>
+          <li><a href="#reviews">Testimonials</a></li>
+        </ul>
+      </div>
+    </nav>
 
-            <div class="menubar-links">
-                <ul>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#related-companies">Companies</a></li>
-                    <li><a href="#reviews">Testimonials</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="container-text">
-            <h1>RED CROSS ÅLESUND</h1>
-            <H6>We value every life</H6>
-            <div class="signup-btn">
-                <button type="button">Sign up for course</button>
-            </div>
-        </div>
-
-    </section>
-
-    <section id="product">
-
-
-    </section>
-
-    <section id="about-us">
-        <div class="about-text">
-            <h1>About us</h1>
-            <p>We provide courses both during work time and evening courses. <br> Since 2020, we don't provide weekend
-                courses anymore.</p>
-        </div>
-
-        <div class="image-slider">
-            <h1>Our team</h1>
-            <figure>
-                <img src="images/wide1.png">
-                <img src="images/wide2.png">
-                <img src="images/wide3.jpg">
-            </figure>
-
-        </div>
-
-        <div class="image-dot">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-
-        <div class="text-under">
-            <p>Our team consists of medical professionals with more than 30 years of experience. <br>We are certified
-                according to ISO 8072 and DNV 23:786.</p>
-        </div>
-    </section>
-
-    <section id="related-companies">
-        <h1>Related Companies</h1>
-        
-        <div id="company-cards">
-            <div class="company-card-item">
-                <a href="https://radioaalesund.no/" target="_blank"><img src="images/radio.png" alt="radio Alesund" class="company-image"></a>
-            </div>
+    <div class="container-text">
+      <h1>RED CROSS ÅLESUND</h1>
+      <H6>We value every life</H6>
+      <div class="signup-btn">
+        <button type="button">Sign up for course</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-            <div class="company-card-item">
-                <a href="https://smp.no/" target="_blank"><img src="images/smp.png" alt="smp" class="company-image"></a>
-            </div>
 
-            <div class="company-card-item">
-                <a href="https://tv.nrk.no/" target="_blank"><img src="images/nrktv.png" alt="nrk tv" class="company-image"></a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="reviews">
-        <h1>Testimonials</h1>
-        <div id="review-cards" onscroll='checkEdge()'>
-            <div class="review-card-item" id="review-card-item1">
-                <img src="images/user1.png" alt="user image">
-                <h2>Great Product!</h2>
-                <p>this works well</p>
-            </div>
-
-            <div class="review-card-item" id="review-card-item2">
-                <img src="images/user2.png" alt="user image">
-                <h2>Great Product!</h2>
-                <p>this works well</p>
-            </div>
-
-            <div class="review-card-item" id="review-card-item3"> 
-                <img src="images/user3.png" alt="user image">
-                <h2>Great Product!</h2>
-                <p>this works well</p>
-            </div>
-
-            <div class="review-card-item" id="review-card-item4">
-                <img src="images/user3.png" alt="user image">
-                <h2>Great Product!</h2>
-                <p>this works well</p>
-            </div>
-
-            <div class="review-card-item" id="review-card-item5">
-                <img src="images/user3.png" alt="user image">
-                <h2>Great Product!</h2>
-                <p>this works well</p>
-            </div>
-
-            <div class="review-card-item" id="review-card-item6">
-                <img src="images/user3.png" alt="user image">
-                <h2>Great Product!</h2>
-                <p>this works well</p>
-            </div>
-        </div>
-    </section>
+<section id="product-content">
+  <div class="title">
+    <h2>Our products</h2>
+    <h3>We have provided courses for industrial HMS responsible for 12 years. During that time, we have had more than 3000 customers from 6 different countries.</h3>
+  </div>
+  <div class="product-cards">
+    <div class="product-card-item">
+      <img src="../images/first-aid.jpg">
+      <div class="card-item-description">
+        <h3>One day course</h3>
+        <p>A 6 hour refreshment course for those who have taken a course during the last 3 years.</p>
+        <p>Prices: 5000.- NOK for 1 person or 20 000.- NOK for 5-person group.</p>
+      </div>
+    </div>
+    <div class="product-card-item">
+      <img src="../images/first-aid.jpg">
+      <div class="card-item-description">
+        <h3>Two day course</h3>
+        <p>A full course for those who haven't had a course before. The course lasts 4 hours per day.</p>
+        <p>Prices: 8000.- NOK for 1 person or 35 000.- NOK for 5-person group.</p>
+      </div>
+    </div>
+    <div class="product-card-item">
+      <img src="../images/first-aid.jpg">
+      <div class="card-item-description">
+        <h3>Short consultation</h3>
+        <p>We provide a short consultation up to an hour on a specific topic, chosen by the client</p>
+        <p>Price: 1600.- NOK</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-    <section id="footer">
-        <div class="footer-container">
-            <div class="shortcut">
-                <H1>Shortcut</H1>
-                <ul>
-                    <li><a href="#">Certification</a></li>
-                    <li><a href="#">Payments</a></li>
-                    <li><a href="#">Orders</a></li>
-                </ul>
-            </div>
-            <div class="information">
-                <h1>Information</h1>
-                <ul>
-                    <li><a href="#">Terms and conditions</a></li>
-                    <li><a href="#">Code and Medical Ethics</a></li>
-                    <li><a href="#">Terms of sale</a></li>
-                </ul>
-            </div>
-            <div class="support">
-                <h1>Support</h1>
-                <ul>
-                <li><a href="#">Contacts us</a></li>
-                <li><a href="#">Questions and Answers</a></li>
-                <li><a href="#">Refunds</a></li>
-                </ul>
-            </div>
-            <div class="footer-images">
-                <img src="images/aids.png" alt="">
-                <img src="images/SecurePayments.png" alt="">
-            </div>
-        </div>
-    </section>
+<section id="about-us">
+  <div class="about-text">
+    <h1>About us</h1>
+    <p>We provide courses both during work time and evening courses. <br> Since 2020, we don't provide weekend
+      courses anymore.</p>
+  </div>
+
+
+
+  <div class="text-under">
+    <p>Our team consists of medical professionals with more than 30 years of experience. <br>We are certified
+      according to ISO 8072 and DNV 23:786.</p>
+  </div>
+</section>
+
+
+<section id="related-companies">
+
+  <h1>Related Companies</h1>
+
+  <div id="company-cards">
+
+    <div class="company-card-item">
+      <a href="https://radioaalesund.no/" target="_blank"><img src="../images/radio.png" alt="radio Alesund" class="company-image"></a>
+    </div>
+
+
+    <div class="company-card-item">
+      <a href="https://smp.no/" target="_blank"><img src="../images/smp.png" alt="smp" class="company-image"></a>
+    </div>
+
+    <div class="company-card-item">
+      <a href="https://tv.nrk.no/" target="_blank"><img src="../images/nrktv.png" alt="nrk tv" class="company-image"></a>
+    </div>
+
+  </div>
+</section>
+
+<section id="testimonial-section">
+  <div class="testimonial-header">
+    <h1>Testimonials</h1>
+    <h2>Reviews from our happiest customers </h2>
+  </div>
+
+  <div class="testimonial-wrapper">
+    <div class="testimonial">
+      <img src="../images/user1.png" alt="">
+      <h2>EXCELLENT EXPERIENCE</h2>
+      <p>"Red Cross are very competent experts in first help.
+        They are so effective; you never need the second help."</p>
+    </div>
+    <div class="testimonial">
+      <img src="../images/user2.png" alt="">
+      <h2>GREAT SERVICE</h2>
+      <p>"I have been HR responsible at my company for 12 years, and every year I update my certification with Red Cross Ålesund.
+        I can proudly say that no one has died under my watch."</p>
+    </div>
+    <div class="testimonial">
+      <img src="../images/user3.png" alt="">
+      <h2>EXCELLENT EXPERIENCE</h2>
+      <p>"These folks may not be Linux kernel gurus, but they do one thing well –
+        they teach you the essentials of first help in an easy and interesting way."</p>
+    </div>
+  </div>
+
+  <div class="line"></div>
+</section>
+
+
+<section id="footer">
+  <div class="footer-container">
+    <div class="dropbar-container">
+      <nav>
+        <label for="touch"><span>Shortcut</span></label>
+        <input type="checkbox" id="touch">
+
+        <ul class="slide">
+          <li><a href="#">Certification</a></li>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Orders</a></li>
+        </ul>
+
+      </nav>
+      <nav>
+        <label for="touch1"><span>Shortcut</span></label>
+        <input type="checkbox" id="touch1">
+
+        <ul class="slide">
+          <li><a href="#">Certification</a></li>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Orders</a></li>
+        </ul>
+
+      </nav>
+      <nav>
+        <label for="touch2"><span>Shortcut</span></label>
+        <input type="checkbox" id="touch2">
+
+        <ul class="slide">
+          <li><a href="#">Certification</a></li>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Orders</a></li>
+        </ul>
+
+      </nav>
+    </div>
+
+    <div class="shortcut">
+      <H1>Shortcut</H1>
+      <ul>
+        <li><a href="#">Certification</a></li>
+        <li><a href="#">Payments</a></li>
+        <li><a href="#">Orders</a></li>
+      </ul>
+    </div>
+    <div class="information">
+      <h1>Information</h1>
+      <ul>
+        <li><a href="#">Terms and conditions</a></li>
+        <li><a href="#">Code and Medical Ethics</a></li>
+        <li><a href="#">Terms of sale</a></li>
+      </ul>
+    </div>
+    <div class="support">
+      <h1>Support</h1>
+      <ul>
+        <li><a href="#">Contacts us</a></li>
+        <li><a href="#">Questions and Answers</a></li>
+        <li><a href="#">Refunds</a></li>
+      </ul>
+    </div>
+    <div class="footer-images">
+      <img src="../images/cross.png" alt="">
+      <p>Copyright © 2022 NTNU, IDATA2301 Web Technologies - group 9</p>
+    </div>
+  </div>
+</section>
 
 </body>
 
