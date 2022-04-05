@@ -11,10 +11,6 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    private Address address;
-
-
     public Customer() {
     }
 
@@ -48,13 +44,5 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }
