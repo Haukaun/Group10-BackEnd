@@ -1,5 +1,6 @@
-package ntnu.group10.backend.group10.entities;
+package ntnu.group10.backend.group10.security;
 
+import ntnu.group10.backend.group10.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

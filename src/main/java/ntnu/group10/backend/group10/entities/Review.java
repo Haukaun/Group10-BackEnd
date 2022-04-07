@@ -11,8 +11,8 @@ public class Review {
     private int reviewId;
 
     @ManyToOne
-    @JoinColumn(name = "customerId", nullable = false)
-    private Customer customer;
+    @JoinColumn(name = "id", nullable = false)
+    private User customer;
 
     @ManyToOne
     @JoinColumn(name = "productId", nullable = false)
@@ -30,11 +30,11 @@ public class Review {
         this.reviewId = reviewId;
     }
 
-    public Customer getCustomer() {
+    public User getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(User customer) {
         this.customer = customer;
     }
 
