@@ -1,4 +1,4 @@
-package ntnu.group10.backend.group10;
+package ntnu.group10.backend.group10.repository;
 
 
 import ntnu.group10.backend.group10.entities.User;

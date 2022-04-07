@@ -10,16 +10,16 @@ public class Order {
     private int orderId;
 
     @OneToOne
-    @JoinColumn(name = "customerId")
-    private Customer customer;
+    @JoinColumn(name = "id")
+    private User user;
 
     @OneToOne(mappedBy = "order")
     @PrimaryKeyJoinColumn
     private Payment payment;
 
-    public Order(int orderId, Customer customer) {
+    public Order(int orderId, User user) {
         this.orderId = orderId;
-        this.customer = customer;
+        this.user = user;
     }
 
     public Order() {
@@ -34,11 +34,11 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public User getCustomer() {
+        return user;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomer(User user) {
+        this.user = user;
     }
 }
