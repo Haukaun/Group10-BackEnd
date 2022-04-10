@@ -35,12 +35,12 @@ public class AuthenticationController {
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequest authenticationRequest) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    authenticationRequest.getUsername(),
+                    authenticationRequest.getUserName(),
                     authenticationRequest.getPassword()));
         } catch (BadCredentialsException e) {
             return new ResponseEntity<>("Invalid username or password", HttpStatus.UNAUTHORIZED);
         }
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUserName());
         final String jwt = jwtUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }

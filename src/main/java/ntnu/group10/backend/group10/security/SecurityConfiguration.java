@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.time.Duration;
@@ -50,7 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // Allow JWT authentication
         http.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate").permitAll().requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/user/register").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
