@@ -13,15 +13,16 @@ import java.util.Set;
 
 public class AccessUserDetails implements UserDetails {
 
-    private final String username;
+    private final String userName;
     private final String password;
     private final boolean isActive;
     private final List<GrantedAuthority> authorities = new LinkedList<>();
 
     public AccessUserDetails(User user) {
-        this.username = user.getUserName();
+        this.userName = user.getUserName();
         this.password = user.getPassword();
         this.isActive = user.isActive();
+        convertRoles(user.getRoles());
     }
 
     private void convertRoles(Set<Role> roles) {
@@ -43,7 +44,7 @@ public class AccessUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.username;
+        return this.userName;
     }
 
     @Override
