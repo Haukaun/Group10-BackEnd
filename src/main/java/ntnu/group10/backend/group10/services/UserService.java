@@ -23,6 +23,7 @@ public class UserService {
     private RoleRepository roleRepository;
 
     public void addUser(User user) {
+        //TODO: CHECK IF USER EXISTS BY EMAIL
         if (userRepository.findByUserName(user.getUserName()).isEmpty()) {
             Role role = new Role("ROLE_CUSTOMER");
 
