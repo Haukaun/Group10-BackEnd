@@ -1,14 +1,13 @@
 package ntnu.group10.backend.group10.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.annotation.processing.Generated;
+import javax.persistence.*;
 
 @Entity
 public class Review {
     @Id
-    private int reviewId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer reviewId;
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
@@ -19,8 +18,12 @@ public class Review {
     private Product product;
 
     private int star;
+    private String reviewTitle;
     private String description;
-    private int likeRatio;
+
+    public boolean isValid() {
+        return !(reviewTitle.isBlank() && description.isBlank() && star < 0);
+    }
 
     public int getReviewId() {
         return reviewId;
@@ -60,14 +63,6 @@ public class Review {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getLikeRatio() {
-        return likeRatio;
-    }
-
-    public void setLikeRatio(int likeRatio) {
-        this.likeRatio = likeRatio;
     }
 
     public Review() {
