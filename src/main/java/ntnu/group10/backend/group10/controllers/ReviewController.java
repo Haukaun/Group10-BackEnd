@@ -8,15 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@RequestMapping("/products")
+@RequestMapping("/review")
 public class ReviewController {
 
 
@@ -38,13 +35,29 @@ public class ReviewController {
         return response;
     }
 
-
-    public ResponseEntity<String> addReview(@RequestBody Review review) {
-        ResponseEntity<String> responseEntity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
-     return responseEntity;
-
+    @PostMapping("/products/{id}")
+    @PreAuthorize("hasRole('ROLE_CUSTOMER') or hasRole('ROLE_ADMIN')")
+    public ResponseEntity<String> addReview(@RequestBody Review review, @PathVariable String id) {
+        ResponseEntity<String> response;
+        try {
+            reviewService.addReview(review);
+            response = new ResponseEntity<>("Review has been created.",HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            response = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return response;
     }
 
-
+    @DeleteMapping("/products/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<String> deleteReview(@RequestBody Review review, @PathVariable String id){
+        ResponseEntity<String> response;
+        try {
+            reviewService.deleteReviewId(review);
+            response = new ResponseEntity<>("Review has been deleted.",HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            response = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return response;
+    }
 }
