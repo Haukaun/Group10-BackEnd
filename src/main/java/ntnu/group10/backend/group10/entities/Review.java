@@ -18,11 +18,10 @@ public class Review {
     private Product product;
 
     private int star;
-    private String reviewTitle;
     private String description;
 
     public boolean isValid() {
-        return !(reviewTitle.isBlank() && description.isBlank() && star < 0);
+        return !(description.isBlank() && star < 0);
     }
 
     public int getReviewId() {
