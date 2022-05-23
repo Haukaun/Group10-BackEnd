@@ -73,7 +73,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("https://gr09.appdev.cloudns.ph/", "localhost:3000"));
+        configuration.setAllowedOrigins(Arrays.asList("https://gr09.appdev.cloudns.ph/", "http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("authorization", "withCredentials","content-type", "x-auth-token","Access-Control-Allow-Credentials","Access-Control-Allow-Origin","Access-Control-Allow-Headers"));
         configuration.setExposedHeaders(Arrays.asList("x-auth-token","set-cookie"));
