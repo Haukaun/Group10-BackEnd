@@ -10,6 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -23,7 +25,6 @@ public class UserService {
     private RoleRepository roleRepository;
 
     public void addUser(User user) {
-        //TODO: CHECK IF USER EXISTS BY EMAIL
         if (userRepository.findByUserName(user.getUserName()).isEmpty()) {
             Role role = new Role("ROLE_CUSTOMER");
 
@@ -36,11 +37,15 @@ public class UserService {
         }
     }
 
-    public String getUserDetails() {
+    public User getCurrentUserDetails() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
-        User currentUser = userRepository.findByUserName(currentPrincipalName).get();
+        Optional<User> optionalCurrentUser = userRepository.findByUserName(currentPrincipalName);
 
-        return currentUser.toString();
+        return optionalCurrentUser.orElse(null);
+    }
+
+    public String getUser() {
+        return getCurrentUserDetails().toString();
     }
 }

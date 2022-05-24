@@ -38,15 +38,9 @@ public class UserController {
         return response;
     }
 
-    @GetMapping("/getDetails")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<String> getUserDetails() {
-        ResponseEntity<String> response = new ResponseEntity<>("Error getting user details.", HttpStatus.BAD_REQUEST);
-        String userDetails = userService.getUserDetails();
-
-        if (userDetails != null) {
-            response = new ResponseEntity<>(userDetails, HttpStatus.OK);
-        }
-        return response;
+    @GetMapping("/myuser")
+    @PreAuthorize("hasRole('ROLE_CUSTOMER') or hasRole('ROLE_ADMIN')")
+    public @ResponseBody String getUserDetails() {
+        return userService.getUser();
     }
 }

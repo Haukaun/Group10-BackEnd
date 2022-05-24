@@ -7,18 +7,34 @@ import javax.persistence.Id;
 public class Product {
     @Id
     private int productId;
-    private int orderItemId;
     private String productName;
+    private String description;
+    private int basePrice;
+    private int groupPrice;
 
-    public String getProductDescription() {
-        return productDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    private String productDescription;
+    public int getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(int basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public int getGroupPrice() {
+        return groupPrice;
+    }
+
+    public void setGroupPrice(int discountedPrice) {
+        this.groupPrice = discountedPrice;
+    }
 
     public int getProductId() {
         return productId;
@@ -26,14 +42,6 @@ public class Product {
 
     public void setProductId(int productId) {
         this.productId = productId;
-    }
-
-    public int getOrderItemId() {
-        return orderItemId;
-    }
-
-    public void setOrderItemId(int orderItemId) {
-        this.orderItemId = orderItemId;
     }
 
     public String getProductName() {

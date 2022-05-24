@@ -15,7 +15,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     @Transactional
-    public List<Product> readProducts() {
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
