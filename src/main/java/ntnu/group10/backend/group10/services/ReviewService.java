@@ -42,12 +42,12 @@ public class ReviewService {
             reviewRepository.save(review);
             System.out.println(review.getReviewId());
         } else {
-            throw new IllegalArgumentException("Review already exists.");
+            throw new IllegalArgumentException("Review not valid");
         }
     }
 
-    public void deleteReviewId(Review review) {
-        Optional<Review> reviewOptional = reviewRepository.findById(review.getReviewId());
+    public void deleteReviewId(Integer id) {
+        Optional<Review> reviewOptional = reviewRepository.findById(id);
         if (reviewOptional.isPresent()) {
             Review foundReview = reviewOptional.get();
             reviewRepository.delete(foundReview);

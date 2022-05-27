@@ -44,20 +44,20 @@ public class ReviewController {
             reviewService.addReview(review, id);
             response = new ResponseEntity<>("Review has been created.",HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
-            response = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+            response = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return response;
     }
 
     @DeleteMapping("/products/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<String> deleteReview(@RequestBody Review review, @PathVariable Integer id){
+    public ResponseEntity<String> deleteReview(@PathVariable Integer id){
         ResponseEntity<String> response;
         try {
-            reviewService.deleteReviewId(review);
+            reviewService.deleteReviewId(id);
             response = new ResponseEntity<>("Review has been deleted.",HttpStatus.OK);
         } catch (IllegalArgumentException e) {
-            response = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+            response = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return response;
     }
