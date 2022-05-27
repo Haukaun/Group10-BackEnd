@@ -1,6 +1,8 @@
 package ntnu.group10.backend.group10.entities;
 
-import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,25 +12,28 @@ public class Review {
     private Integer reviewId;
 
     @ManyToOne
+    @JsonIgnoreProperties({ "roles", "id", "password", "email", "active", "valid"})
     @JoinColumn(name = "id", nullable = false)
     private User customer;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "productId", nullable = false)
     private Product product;
 
-    private int star;
+    private int rating;
     private String description;
 
+    @JsonIgnore
     public boolean isValid() {
-        return !(description.isBlank() && star < 0);
+        return !(description.isBlank() || rating < 0);
     }
 
-    public int getReviewId() {
+    public Integer getReviewId() {
         return reviewId;
     }
 
-    public void setReviewId(int reviewId) {
+    public void setReviewId(Integer reviewId) {
         this.reviewId = reviewId;
     }
 
@@ -48,12 +53,12 @@ public class Review {
         this.product = product;
     }
 
-    public int getStar() {
-        return star;
+    public int getRating() {
+        return rating;
     }
 
-    public void setStar(int star) {
-        this.star = star;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getDescription() {
