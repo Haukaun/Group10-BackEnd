@@ -1,6 +1,5 @@
 package ntnu.group10.backend.group10.entities;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
 
 @Entity
@@ -17,11 +16,11 @@ public class Review {
     @JoinColumn(name = "productId", nullable = false)
     private Product product;
 
-    private int star;
+    private int rating;
     private String description;
 
     public boolean isValid() {
-        return !(description.isBlank() && star < 0);
+        return !(description.isBlank() && rating < 0);
     }
 
     public int getReviewId() {
@@ -48,12 +47,12 @@ public class Review {
         this.product = product;
     }
 
-    public int getStar() {
-        return star;
+    public int getRating() {
+        return rating;
     }
 
-    public void setStar(int star) {
-        this.star = star;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getDescription() {
