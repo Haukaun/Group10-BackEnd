@@ -38,15 +38,13 @@ public class ReviewController {
 
     @PostMapping("/products/{id}")
     @PreAuthorize("hasRole('ROLE_CUSTOMER') or hasRole('ROLE_ADMIN')")
-    public ResponseEntity<String> addReview(@RequestBody Review review, @PathVariable Integer id) {
-        ResponseEntity<String> response;
+    public ResponseEntity<Review> addReview(@RequestBody Review review, @PathVariable Integer id) {
         try {
-            reviewService.addReview(review, id);
-            response = new ResponseEntity<>("Review has been created.",HttpStatus.CREATED);
+            Review newReview = reviewService.addReview(review, id);
+            return new ResponseEntity<>(newReview, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
-            response = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        return response;
     }
 
     @DeleteMapping("/products/{id}")

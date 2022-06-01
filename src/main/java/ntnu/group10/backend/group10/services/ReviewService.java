@@ -33,14 +33,13 @@ public class ReviewService {
     }
 
 
-    public void addReview(Review review, Integer productId) {
+    public Review addReview(Review review, Integer productId) {
         Product product = productRepository.findById(productId).orElse(null);
         User currentUser = userService.getCurrentUserDetails();
         if (review.isValid() && product != null && currentUser != null) {
             review.setProduct(product);
             review.setCustomer(currentUser);
-            reviewRepository.save(review);
-            System.out.println(review.getReviewId());
+            return reviewRepository.save(review);
         } else {
             throw new IllegalArgumentException("Review not valid");
         }
