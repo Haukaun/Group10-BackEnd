@@ -25,7 +25,7 @@ public class UserService {
     private RoleRepository roleRepository;
 
     public void addUser(User user) {
-        if (userRepository.findByUserName(user.getUserName()).isEmpty()) {
+        if (userRepository.findByUserName(user.getUserName()).isEmpty() && userRepository.findByEmail(user.getEmail()).isEmpty()) {
             Role role = new Role("ROLE_CUSTOMER");
 
             user.addRole(role);

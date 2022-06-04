@@ -25,7 +25,7 @@ public class UserController {
     @PreAuthorize("permitAll()")
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
-        ResponseEntity<String> response = new ResponseEntity<>("User input not valid.", HttpStatus.BAD_REQUEST);
+        ResponseEntity<String> response = new ResponseEntity<>("Username and password must be at least 6 characters.", HttpStatus.BAD_REQUEST);
         if (user.isValid()) {
             try {
                 userService.addUser(user);

@@ -60,5 +60,15 @@ public class ReviewController {
         return response;
     }
 
-
+    @PatchMapping("/products/{id}")
+    public ResponseEntity<Review> editReview(@RequestBody Review review, @PathVariable Integer id) {
+        ResponseEntity<Review> response;
+        try {
+            Review updatedReview = reviewService.editReview(review, id);
+            response = new ResponseEntity<>(updatedReview, HttpStatus.OK);
+        } catch (Exception e) {
+            response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return response;
+    }
 }

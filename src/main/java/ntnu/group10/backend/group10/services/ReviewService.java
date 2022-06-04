@@ -53,5 +53,16 @@ public class ReviewService {
         }
     }
 
+    public Review editReview(Review review, Integer id) {
+        Review oldReview = reviewRepository.findById(id).orElse(null);
+        if (oldReview != null) {
+            oldReview.setRating(review.getRating());
+            oldReview.setDescription(review.getDescription());
+            return reviewRepository.save(oldReview);
+        } else {
+            throw new IllegalArgumentException("Ops");
+        }
+    }
+
 
 }
