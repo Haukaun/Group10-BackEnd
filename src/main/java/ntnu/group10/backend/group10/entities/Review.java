@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "review", uniqueConstraints = {@UniqueConstraint(columnNames = {"id", "productId"})})
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

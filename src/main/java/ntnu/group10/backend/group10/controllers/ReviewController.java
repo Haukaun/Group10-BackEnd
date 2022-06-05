@@ -44,6 +44,8 @@ public class ReviewController {
             return new ResponseEntity<>(newReview, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (IllegalStateException exception) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
 

@@ -5,6 +5,7 @@ import ntnu.group10.backend.group10.entities.Review;
 import ntnu.group10.backend.group10.entities.User;
 import ntnu.group10.backend.group10.repository.ProductRepository;
 import ntnu.group10.backend.group10.repository.ReviewRepository;
+import org.hibernate.DuplicateMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -29,13 +30,15 @@ public class ReviewService {
 
     public List<Review> getAllByProductId(int id) {
         return reviewRepository.findAllByProductId(id);
-
     }
 
 
     public Review addReview(Review review, Integer productId) {
         Product product = productRepository.findById(productId).orElse(null);
         User currentUser = userService.getCurrentUserDetails();
+        if (reviewRepository.findByCustomerAndProductEquals(currentUser, product).isPresent()) {
+            throw new IllegalStateException("You already have a review for this product.");
+        }
         if (review.isValid() && product != null && currentUser != null) {
             review.setProduct(product);
             review.setCustomer(currentUser);

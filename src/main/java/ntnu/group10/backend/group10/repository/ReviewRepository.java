@@ -1,5 +1,6 @@
 package ntnu.group10.backend.group10.repository;
 
+import ntnu.group10.backend.group10.entities.Product;
 import ntnu.group10.backend.group10.entities.Review;
 import ntnu.group10.backend.group10.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +18,6 @@ public interface ReviewRepository extends JpaRepository<Review, Integer> {
     List<Review> findAllByProductId(int id);
 
     Optional<Review> findById(int id);
+
+    Optional<Review> findByCustomerAndProductEquals(User customer, Product product);
 }
