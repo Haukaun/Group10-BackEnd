@@ -10,6 +10,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * The type User controller.
+ */
 @Controller()
 @RequestMapping(path = "/user")
 public class UserController {
@@ -22,6 +25,12 @@ public class UserController {
         return "login";
     }
 
+    /**
+     * Register response entity.
+     *
+     * @param user the user
+     * @return the response entity
+     */
     @PreAuthorize("permitAll()")
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
@@ -38,6 +47,11 @@ public class UserController {
         return response;
     }
 
+    /**
+     * Gets user details.
+     *
+     * @return the user details
+     */
     @GetMapping("/myuser")
     @PreAuthorize("hasRole('ROLE_CUSTOMER') or hasRole('ROLE_ADMIN')")
     public @ResponseBody String getUserDetails() {
