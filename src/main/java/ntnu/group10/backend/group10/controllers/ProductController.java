@@ -31,7 +31,7 @@ public class ProductController {
     public ResponseEntity<Product> getProductById(@PathVariable("id") Integer productId){
         Optional<Product> optionalProduct = productService.getProductById(productId);
         if (optionalProduct.isPresent()){
-            return new ResponseEntity<Product>(optionalProduct.get(), HttpStatus.OK);
+            return new ResponseEntity<>(optionalProduct.get(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

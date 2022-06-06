@@ -38,14 +38,14 @@ public class ReviewController {
 
     @PostMapping("/products/{id}")
     @PreAuthorize("hasRole('ROLE_CUSTOMER') or hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Review> addReview(@RequestBody Review review, @PathVariable Integer id) {
+    public ResponseEntity<?> addReview(@RequestBody Review review, @PathVariable Integer id) {
         try {
             Review newReview = reviewService.addReview(review, id);
             return new ResponseEntity<>(newReview, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (IllegalStateException exception) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
         }
     }
 
@@ -68,8 +68,10 @@ public class ReviewController {
         try {
             Review updatedReview = reviewService.editReview(review, id);
             response = new ResponseEntity<>(updatedReview, HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalArgumentException exception) {
+            response = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         return response;
     }

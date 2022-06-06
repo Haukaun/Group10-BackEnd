@@ -5,7 +5,6 @@ import ntnu.group10.backend.group10.entities.Review;
 import ntnu.group10.backend.group10.entities.User;
 import ntnu.group10.backend.group10.repository.ProductRepository;
 import ntnu.group10.backend.group10.repository.ReviewRepository;
-import org.hibernate.DuplicateMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -67,7 +66,7 @@ public class ReviewService {
             review.setCustomer(currentUser);
             return reviewRepository.save(review);
         } else {
-            throw new IllegalArgumentException("Review not valid");
+            throw new IllegalArgumentException("Enter at least a few words.");
         }
     }
 
@@ -94,12 +93,15 @@ public class ReviewService {
      */
     public Review editReview(Review review, Integer id) {
         Review oldReview = reviewRepository.findById(id).orElse(null);
-        if (oldReview != null) {
+        User currentUser = userService.getCurrentUserDetails();
+        if (oldReview != null && oldReview.getCustomer() == currentUser) {
             oldReview.setRating(review.getRating());
             oldReview.setDescription(review.getDescription());
             return reviewRepository.save(oldReview);
+        } else if (oldReview == null) {
+            throw new NullPointerException("Review does not exist.");
         } else {
-            throw new IllegalArgumentException("Ops");
+            throw new IllegalArgumentException("Not your review");
         }
     }
 

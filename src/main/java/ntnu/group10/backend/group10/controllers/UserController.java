@@ -20,17 +20,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
-    /**
-     * Register response entity.
-     *
-     * @param user the user
-     * @return the response entity
-     */
     @PreAuthorize("permitAll()")
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
