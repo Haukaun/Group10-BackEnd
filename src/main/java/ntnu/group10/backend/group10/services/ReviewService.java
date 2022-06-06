@@ -44,7 +44,7 @@ public class ReviewService {
             review.setCustomer(currentUser);
             return reviewRepository.save(review);
         } else {
-            throw new IllegalArgumentException("Review not valid");
+            throw new IllegalArgumentException("Enter at least a few words.");
         }
     }
 
