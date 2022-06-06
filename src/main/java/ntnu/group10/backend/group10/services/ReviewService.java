@@ -58,7 +58,8 @@ public class ReviewService {
 
     public Review editReview(Review review, Integer id) {
         Review oldReview = reviewRepository.findById(id).orElse(null);
-        if (oldReview != null) {
+        User currentUser = userService.getCurrentUserDetails();
+        if (oldReview != null && oldReview.getCustomer() == currentUser) {
             oldReview.setRating(review.getRating());
             oldReview.setDescription(review.getDescription());
             return reviewRepository.save(oldReview);
