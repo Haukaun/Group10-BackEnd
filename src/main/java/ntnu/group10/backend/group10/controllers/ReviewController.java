@@ -68,8 +68,10 @@ public class ReviewController {
         try {
             Review updatedReview = reviewService.editReview(review, id);
             response = new ResponseEntity<>(updatedReview, HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalArgumentException exception) {
+            response = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         return response;
     }
