@@ -10,13 +10,27 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller()
+/**
+ * The type User controller. Controller class is responsible for processing incoming
+ * REST API requests, preparing model, and return response.
+ */
+@Controller
 @RequestMapping(path = "/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+
+    /**
+     * Post method for registering user.
+     * Sends Response based on the User being valid.
+     * Created 201, if user is added.
+     * Conflict 409, if user is not valid.
+     * Bad request 400, if user input is wrong.
+     * @param user, User entity.
+     * @return the response entity
+     */
     @PreAuthorize("permitAll()")
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
@@ -33,6 +47,11 @@ public class UserController {
         return response;
     }
 
+    /**
+     * Gets user details.
+     * Request only for ROLE_CUSTOMER and ROLE_ADMIN.
+     * @return the user details
+     */
     @GetMapping("/myuser")
     @PreAuthorize("hasRole('ROLE_CUSTOMER') or hasRole('ROLE_ADMIN')")
     public @ResponseBody String getUserDetails() {

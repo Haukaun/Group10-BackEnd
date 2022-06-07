@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ *User service. Service class which handles CRUD logic for User.
+ */
 @Service
 public class UserService {
 
@@ -24,6 +27,12 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
+    /**
+     * Add user.
+     * If username and email don't exist, user gets role as customer, encodes password and adds user.
+     *
+     * @param user, Entity class for User.
+     */
     public void addUser(User user) {
         if (userRepository.findByUserName(user.getUserName()).isEmpty() && userRepository.findByEmail(user.getEmail()).isEmpty()) {
             Role role = new Role("ROLE_CUSTOMER");
@@ -37,6 +46,11 @@ public class UserService {
         }
     }
 
+    /**
+     * Gets current user details.
+     *
+     * @return the current user details
+     */
     public User getCurrentUserDetails() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
@@ -45,6 +59,11 @@ public class UserService {
         return optionalCurrentUser.orElse(null);
     }
 
+    /**
+     * Gets user in string format.
+     *
+     * @return the user as string
+     */
     public String getUser() {
         return getCurrentUserDetails().toString();
     }

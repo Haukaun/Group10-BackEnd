@@ -18,6 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+/**
+ * The type Authentication controller. Controller class is responsible for processing incoming
+ * REST API requests, preparing model, and return response.
+ *
+ * @CrossOrigin security concept that allows restricting resources implemented in web browsers.
+ * It prevents javascript to produce or consume requests against different origins.
+ */
 @RestController
 @CrossOrigin(origins = "*")
 public class AuthenticationController {
@@ -31,6 +38,14 @@ public class AuthenticationController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
+    /**
+     * Sends response based on it being added correct or wrong credentials.
+     * Generates a Jwt token for the user and returns an AuthenticationResponse.
+     * UNAUTHORIZED 401, if the credentials are wrong.
+     * @param authenticationRequest the authentication request
+     * @return the response entity
+     */
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequest authenticationRequest) {
         try {

@@ -19,6 +19,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.time.Duration;
 import java.util.Arrays;
 
+
+
+/**
+ * Creates AuthenticationManager - set up authentication type
+ * The @EnableWebSecurity tells that this ia a class for configuring web security
+ * The @EnableGlobalMethodSecurity is needed so that each endpoint can specify which role it requires
+ */
 @EnableWebSecurity
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
