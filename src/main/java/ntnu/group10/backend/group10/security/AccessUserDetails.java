@@ -11,6 +11,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * AccessUserDetails Class which implements UserDetails.
+ * UserDetails is an interface that provides core user information.
+ * Contains authentication information, need by UserDetailsService.
+ */
 public class AccessUserDetails implements UserDetails {
 
     private final String userName;
@@ -18,12 +23,15 @@ public class AccessUserDetails implements UserDetails {
     private final boolean isActive;
     private final List<GrantedAuthority> authorities = new LinkedList<>();
 
+
     public AccessUserDetails(User user) {
         this.userName = user.getUserName();
         this.password = user.getPassword();
         this.isActive = user.isActive();
         convertRoles(user.getRoles());
     }
+
+
 
     private void convertRoles(Set<Role> roles) {
         authorities.clear();

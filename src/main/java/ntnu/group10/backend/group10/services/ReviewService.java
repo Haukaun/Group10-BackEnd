@@ -86,7 +86,7 @@ public class ReviewService {
 
     /**
      * Edit review. Gets old review and updates it to a new edited review.
-     *
+     * Checks if old review is not null and if the user editing is the same that posted.
      * @param review, Entity class for review.
      * @param id, id for review.
      * @return the newly edited review
