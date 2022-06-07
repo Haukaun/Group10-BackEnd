@@ -6,10 +6,22 @@ package ntnu.group10.backend.group10.security;
 public class AuthenticationResponse {
     private final String jwt;
 
+
+
+    /**
+     * Instantiates a new Authentication response.
+     *
+     * @param jwt the jwt
+     */
     public AuthenticationResponse(String jwt) {
         this.jwt = jwt;
     }
 
+    /**
+     * Gets jwt token.
+     *
+     * @return the jwt
+     */
     public String getJwt() {
         return jwt;
     }

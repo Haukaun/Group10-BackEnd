@@ -9,16 +9,31 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Product service. Service class which handles CRUD logic for product.
+ */
 @Service
 public class ProductService {
+
     @Autowired
     private ProductRepository productRepository;
 
+    /**
+     * Gets all products.
+     *
+     * @return all products
+     */
     @Transactional
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
+    /**
+     * Finds product by id.
+     *
+     * @param id, id for product
+     * @return product by id
+     */
     public Optional<Product> getProductById(Integer id) {
         return productRepository.findById(id);
     }

@@ -7,11 +7,28 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * The interface User repository.
+ * JpaRepository is a JPA specific extension.
+ * Full API of CrudRepository.
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+    /**
+     * Finds user by Username.
+     *
+     * @param userName, the username
+     * @return optional user.
+     */
     Optional<User> findByUserName(String userName);
 
+    /**
+     * Finds user by email.
+     *
+     * @param email, the email
+     * @return optional user.
+     */
     Optional<User> findByEmail(String email);
 
 }

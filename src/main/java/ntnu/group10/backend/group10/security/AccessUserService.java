@@ -10,12 +10,25 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * The type Access user service.
+ * UserDetailsService is an core interface which loads user-specific data.
+ */
 @Service
 public class AccessUserService implements UserDetailsService {
+
+
     @Autowired
     UserRepository userRepository;
 
 
+    /**
+     * Checks if user exists and loads users by Username, if they are present.
+     *
+     * @param username, String username.
+     * @return User details.
+     * @throws UsernameNotFoundException, Exception gets thrown if username is not found.
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUserName(username);
@@ -25,4 +38,5 @@ public class AccessUserService implements UserDetailsService {
             throw new UsernameNotFoundException("User " + username + " not found");
         }
     }
+
 }
