@@ -33,7 +33,7 @@ public class ProductController {
         if (optionalProduct.isPresent()){
             return new ResponseEntity<>(optionalProduct.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
     }

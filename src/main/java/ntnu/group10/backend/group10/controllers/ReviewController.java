@@ -21,17 +21,14 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
-
     @GetMapping("/products/{id}")
     @PreAuthorize("permitAll()")
     public ResponseEntity<List<Review>> getAllProductReviewsById(@PathVariable Integer id) {
-        ResponseEntity<List<Review>> response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        ResponseEntity<List<Review>> response;
         try {
             response = new ResponseEntity<>(reviewService.getAllByProductId(id), HttpStatus.OK);
         } catch (Exception e) {
-            logger.warn(e.getMessage());
-            return response;
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return response;
     }
@@ -55,9 +52,9 @@ public class ReviewController {
         ResponseEntity<String> response;
         try {
             reviewService.deleteReviewId(id);
-            response = new ResponseEntity<>("Review has been deleted.",HttpStatus.OK);
+            response = new ResponseEntity<>("Review has been deleted.", HttpStatus.OK);
         } catch (IllegalArgumentException e) {
-            response = new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            response = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
         return response;
     }
@@ -71,7 +68,7 @@ public class ReviewController {
         } catch (NullPointerException e) {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (IllegalArgumentException exception) {
-            response = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            response = new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
         return response;
     }
