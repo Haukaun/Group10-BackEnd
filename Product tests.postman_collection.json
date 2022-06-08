@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "000a0c6f-2bf7-4873-af51-31131df3a7c3",
+		"name": "Product tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19229540"
+	},
+	"item": [
+		{
+			"name": "Get all products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Correct length of products\", function() {",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(3);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gr09.appdev.cloudns.ph:8443/products",
+					"protocol": "https",
+					"host": [
+						"gr09",
+						"appdev",
+						"cloudns",
+						"ph"
+					],
+					"port": "8443",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Product object has 5 attributes\", function() {",
+							"    pm.expect(Object.keys(pm.response.json()).length).to.eql(5);",
+							"})",
+							"",
+							"pm.test(\"Product id is correct\", function() {",
+							"    pm.expect(pm.response.json().productId == 1);",
+							"})",
+							"",
+							"pm.test(\"Product name is correct\", function() {",
+							"    pm.expect(pm.response.json().productName == (\"One Day Course\"));",
+							"})",
+							"",
+							"pm.test(\"Product description is correct\", function() {",
+							"    pm.expect(pm.response.json().productName == (\"A 6 hour refreshment course for those who have taken a course during the last 3 years.\"));",
+							"})",
+							"",
+							"pm.test(\"Base price is correct\", function() {",
+							"    pm.expect(pm.response.json().basePrice == (5000));",
+							"})",
+							"",
+							"pm.test(\"Group price is correct\", function() {",
+							"    pm.expect(pm.response.json().groupPrice == (35000));",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gr09.appdev.cloudns.ph:8443/products/1",
+					"protocol": "https",
+					"host": [
+						"gr09",
+						"appdev",
+						"cloudns",
+						"ph"
+					],
+					"port": "8443",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
