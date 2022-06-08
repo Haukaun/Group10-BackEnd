@@ -22,6 +22,9 @@ import java.util.Arrays;
 
 
 /**
+ * Code from GitHub:
+ * https://github.com/strazdinsg/app-dev/tree/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/security
+ *
  * Creates AuthenticationManager - set up authentication type
  * The @EnableWebSecurity tells that this ia a class for configuring web security
  * The @EnableGlobalMethodSecurity is needed so that each endpoint can specify which role it requires

@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * Code from GitHub:
+ * https://github.com/strazdinsg/app-dev/tree/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/security
+ *
  * AccessUserDetails Class which implements UserDetails.
  * UserDetails is an interface that provides core user information.
  * Contains authentication information, need by UserDetailsService.

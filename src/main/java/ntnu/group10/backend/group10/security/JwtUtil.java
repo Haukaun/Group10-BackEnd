@@ -10,6 +10,11 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.function.Function;
 
+/**
+ * Code from GitHub:
+ * https://github.com/strazdinsg/app-dev/tree/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/security
+ */
+
 @Component
 public class JwtUtil {
     @Value("${jwt_secret_key}")

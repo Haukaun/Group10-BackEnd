@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
+ * Part of code taken from GitHub:
+ * https://github.com/strazdinsg/app-dev/blob/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/controllers/AuthenticationController.java
+ *
  * The type Authentication controller. Controller class is responsible for processing incoming
  * REST API requests, preparing model, and return response.
  *

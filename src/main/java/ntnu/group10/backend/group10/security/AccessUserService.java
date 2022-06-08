@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /**
+ * Code from GitHub:
+ * https://github.com/strazdinsg/app-dev/tree/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/security
  * The type Access user service.
  * UserDetailsService is an core interface which loads user-specific data.
  */

@@ -8,6 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
+ * Part of code taken from GitHub:
+ * https://github.com/strazdinsg/app-dev/blob/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/models/Role.java
+ *
  * Role Entity Class.
  */
 @Entity(name="roles")

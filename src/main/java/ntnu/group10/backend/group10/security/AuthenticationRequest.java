@@ -1,6 +1,8 @@
 package ntnu.group10.backend.group10.security;
 
 /**
+ * Code from GitHub:
+ * https://github.com/strazdinsg/app-dev/tree/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/security
  * Data that the user will send in the login request.
  */
 public class AuthenticationRequest {

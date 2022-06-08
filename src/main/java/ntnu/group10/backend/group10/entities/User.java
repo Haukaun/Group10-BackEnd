@@ -8,6 +8,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
+ * Parts of code taking from GitHub:
+ * https://github.com/strazdinsg/app-dev/blob/main/security-demos/05-jwt-authentication/src/main/java/no/ntnu/models/User.java
+ *
  * User Entity Class.
  */
 @Entity
