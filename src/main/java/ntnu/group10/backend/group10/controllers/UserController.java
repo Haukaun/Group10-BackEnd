@@ -38,7 +38,7 @@ public class UserController {
         if (user.isValid()) {
             try {
                 userService.addUser(user);
-                response = new ResponseEntity<>(HttpStatus.CREATED);
+                response = new ResponseEntity<>("Successfully registered", HttpStatus.CREATED);
             } catch(IllegalArgumentException e) {
                 response = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
             }
